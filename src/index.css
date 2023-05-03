@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+form {
+	display: grid;
+	place-items: center;
+	min-height: 300px;
+	background: #3a0ca3;
+	color: #fff;
+}
+label {
+	font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+#search-input {
+	width: min(300px, 90%);
+	background-color: #fff;
+	color: #242424;
+	padding: .15rem .5rem;
+	min-height: 40px;
+	border-radius: 4px;
+	outline: none;
+	border: none;
+	display: block;
+	margin-inline: auto;
+	margin-block: 1rem 0.5rem;
+}
+
+#search-input + button {
+	display: block;
+	margin-inline: auto;
+	border: 0;
+	font-size: 1rem;
+	padding: 0.5em 1.2em;
+	border-radius: 10rem;
+	background: #5b5fc7;
+	color: #fff;
+}
+
+.card-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	list-style: none;
+	padding: 0;
+	width: min(1000px, 95%);
+	margin-inline: auto;
+	padding-block: 2rem;
+}
+
+.card-wrapper li {
+	width: calc((100% / 3) - (2rem / 3));
+}
+
+.card {
+	width: 100%;
+	border-radius: 6px;
+}
+
+.card-image {
+  position: relative;
+  padding-bottom: 100%;
+  width: 100%;
+  height: 0;
+}
+
+.card-image img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	inset: 0;
+	object-fit: cover;
+  border-radius: 6px;
+}
+
+.card-image small {
+	position: absolute;
+	background: white;
+	bottom: 10px;
+	left: 10px;
+	padding: 5px 10px;
+	border-radius: 10rem;
+	border: 1px solid #c8c8c8;
+	font-size: 11px;
+}
+
+.card h4 {
+	margin-bottom: 0;
+	word-break: break-word;
+}
+
+@media (max-width: 750px) {
+  .card-wrapper li {
+    width: calc((100% / 2) - 0.5rem);
+  }
+}
