@@ -92,6 +92,8 @@ label {
 
 .card h4 {
 	margin-bottom: 0;
+}
+.card * {
 	word-break: break-word;
 }
 
