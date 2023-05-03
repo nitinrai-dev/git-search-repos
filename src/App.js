@@ -13,6 +13,7 @@ function formatDate(dateString) {
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -20,12 +21,14 @@ function App() {
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
-
+    setLoader(true);
+  
     const response = await fetch(
       `https://api.github.com/search/repositories?q=${searchTerm}`
     );
     const data = await response.json();
     setSearchResults(data.items);
+    setLoader(false);
   };
 
   console.log(searchResults);
@@ -47,7 +50,9 @@ function App() {
         </div>
       </form>
 
-      {searchResults.length > 0 && (
+      {loader && <div className="spinner"></div>}
+
+      {searchResults.length > 0 && !loader && (
         <ul className="card-wrapper">
           {searchResults.map((result) => (
             <li key={result.id}>
